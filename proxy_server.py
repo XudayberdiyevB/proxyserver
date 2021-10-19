@@ -69,8 +69,8 @@ def conn_string(conn, data, addr):
 
 def proxy_server(webserver, port, conn, data, addr):
     print("{} {} {} {}".format(webserver, port, conn, addr))
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     try:
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.connect((webserver, port))
         s.send(data)
         while 1:
